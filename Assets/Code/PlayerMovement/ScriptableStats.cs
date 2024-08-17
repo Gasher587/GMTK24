@@ -29,5 +29,11 @@ public class ScriptableStats : ScriptableObject
     public float GrounderDistance = 0.1f; // Distance to check for ground
     public LayerMask PlayerLayer; // Layer mask to ignore when checking collisions
 
+    [Header("Equips")]
+    public GameObject leftArmEquip = null;
+    public GameObject rightArmEquip = null;
+    public GameObject leftLegEquip = null;
+    public GameObject rightLegEquip = null;
+
     // Optionally add methods to validate or manipulate these stats if needed
 }
