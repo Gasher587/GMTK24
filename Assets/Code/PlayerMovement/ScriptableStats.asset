@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ScriptableStats
   m_EditorClassIdentifier: 
   MaxSpeed: 10
-  Acceleration: 10
-  GroundDeceleration: 10
+  Acceleration: 1
+  GroundDeceleration: 1
   AirDeceleration: 5
   JumpPower: 15
   JumpBuffer: 0.2

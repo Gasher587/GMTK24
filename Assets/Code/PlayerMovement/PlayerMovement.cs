@@ -154,10 +154,20 @@ public class PlayerMovement : MonoBehaviour, IPlayerController
     private void HandleDirection()
     {
         float targetSpeed = FrameInput.x * stats.MaxSpeed;
+        float acceleration = stats.Acceleration;
         float deceleration = grounded ? stats.GroundDeceleration : stats.AirDeceleration;
 
         // Smoothly transition to target speed
-        frameVelocity.x = Mathf.MoveTowards(frameVelocity.x, targetSpeed, deceleration * Time.fixedDeltaTime);
+        if (Mathf.Abs(frameVelocity.x) > Mathf.Abs(targetSpeed))
+        {
+            // Accelerate towards target speed
+            frameVelocity.x = Mathf.MoveTowards(frameVelocity.x, targetSpeed, acceleration * Time.fixedDeltaTime);
+        }
+        else
+        {
+            // Decelerate if exceeding target speed
+            frameVelocity.x = Mathf.MoveTowards(frameVelocity.x, targetSpeed, deceleration * Time.fixedDeltaTime);
+        }
     }
 
     #endregion
