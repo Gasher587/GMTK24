@@ -52,9 +52,9 @@ public class ControlsManager : MonoBehaviour
         bag?.Disable();
     }
 
-    public Vector2 GetMovement()
+    public float GetMovement()
     {
-        return movement?.ReadValue<Vector2>() ?? Vector2.zero;
+        return movement?.ReadValue<float>() ?? 0f;
     }
 
     public bool GetJump()
@@ -80,5 +80,15 @@ public class ControlsManager : MonoBehaviour
     public bool GetBag()
     {
         return bag?.ReadValue<float>() > 0.5f;
+    }
+
+    public bool IsMoveRight()
+    {
+        return GetMovement() > 0.5f;
+    }
+
+    public bool IsMoveLeft()
+    {
+        return GetMovement() < -0.5f;
     }
 }
